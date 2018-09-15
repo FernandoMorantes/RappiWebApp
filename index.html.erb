@@ -4,8 +4,16 @@
   </head>
 
   <body>
-    <% @data.each do |data_line|  %>
+    <h1>Prueba datos postgres</h1>
+    <hr/>
+    <% @dataPostgres.each do |data_line|  %>
       <h3><%= data_line %></h3>
+    <% end %>
+
+    <h1>Prueba datos mongo</h1>
+    <hr/>
+    <% @dataMongo.each do |data_line|  %>
+      <h3><%= data_line.to_s %></h3>
     <% end %>
   </body>
 </html>
