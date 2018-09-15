@@ -1,3 +1,5 @@
-source 'https://rubygems.org' do
+source 'https://rubygems.org'
+
   gem 'pg'
-end
+  gem 'rack'
+  gem 'httparty'
