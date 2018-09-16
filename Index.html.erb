@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Mapa</title>
+        <!--Se llama al archivo en donde se encuentran definidos todos los estilos css utilizados en el sitio -->
+        <link href="/Estilos.css" rel="stylesheet" type="text/css">
+        <!--Se importan los iconos de font awesome (facebook y twitter) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body class="bg_inicio">
+
+        <!-- Seccion que contiene todo el contenido de la pagina-->
+        <div class="div_main">
+            <!-- Titulo/icono de la pagina -->
+            <a class="a_logo" href="Index.html.erb" target="_self"><img class="page_logo" src="/images/rappi_logo.png"> </a>
+            <p class="title">Hackathon rappi</p>
+            <!-- Subtitulo descriptivo de la pagina -->
+
+            <!-- Menu de navegacion -->
+            <nav id="nav">
+                <!-- Componentes del menu de navegacion -->
+				<ul>
+                    <!-- Links a otras pestañas del sitio -->
+							<li class="active"><a class="active_link" href="Index.html.erb" target="_self">Mapa</a></li>
+              <li><a class="link" href="data_test.html" target="_self">Data test</a></li>
+
+				</ul>
+            </nav>
+
+            <!-- Cuerpo de la pagina (aqui se ubica todo el contenido) -->
+            <div class="cont">
+
+                <div class="cont_text">
+
+                    <div  id="map" style="width:100%px;height:400px;text-align: center"></div>
+                    <script>
+                        // Initialize and add the map
+                        function initMap() {
+                        // The location of Uluru
+                        var uluru = {lat: -4.673, lng: -74.048};
+                        var uluru2 = {lat: -3.673, lng: -74.048};
+                        // The map, centered at Uluru
+                        var map = new google.maps.Map(
+                            document.getElementById('map'), {zoom: 8, center: uluru});
+
+                        // The marker, positioned at Uluru
+                        var marker = new google.maps.Marker({position: uluru, map: map});
+                          var marker = new google.maps.Marker({position: uluru2, map: map});
+                      }
+                    </script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA00lwQQgWZXTKZ_UV4V9o3yT1XRdnEAlY&callback=initMap"
+                        async defer></script>
+                </div>
+
+            </div>
+
+            <!-- Footer -->
+
+            <div class="footer">
+						<ul><li>&copy; Hackathon Rappi 2018</li> <li>Hecho con dedicacion,  <a class="color: rgba(255, 255, 255, 0.3);" href="https://www.w3schools.com/html/html5_intro.asp" target="_blank">HTML5</a>  y  <a class="color: rgba(255, 255, 255, 0.3);" href="https://www.w3schools.com/css/" target="_blank">CSS</a></li></ul>
+			</div>
+        </div>
+
+
+    </body>
+</html>

@@ -2,9 +2,12 @@ require 'pg'
 require 'mongo'
 require 'erb'
 require 'rack'
-require 'httparty'
+require 'sass'
+require 'sass/plugin/rack'
 
-class PostgresData
+use Sass::Plugin::Rack
+
+class Data
 
   def self.call env
 
@@ -19,7 +22,6 @@ class PostgresData
 
         # Initialize connection object.
         connection = PG::Connection.new(:host => host, :user => user, :dbname => database, :port => '5432', :password => password)
-        puts 'Successfully created connection to database.'
 
         resultSet = connection.exec('SELECT * from storekeepers;')
         resultSet.each_with_index do |row, i|
@@ -27,7 +29,7 @@ class PostgresData
         end
 
     rescue PG::Error => e
-        puts "#{e.message} no funciona esta puta mierda"
+        puts "#{e.message}"
 
     ensure
         connection.close if connection
@@ -57,13 +59,9 @@ class PostgresData
       puts(err)
     end
 
-    if env['PATH_INFO'] == '/'
-      body = ERB.new(File.read('index.html.erb'))
-      [200, {}, [body.result(binding)]]
-    else
-      [404, {}, ['Pagina no encontrada']]
-    end
+    body = ERB.new(File.read('data_test.html.erb'))
+    [200, {}, [body.result(binding)]]
   end
 end
 
-run PostgresData
+run Data

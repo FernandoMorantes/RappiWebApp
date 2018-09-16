@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Data test</title>
+
+        <!--Se llama al archivo en donde se encuentran definidos todos los estilos css utilizados en el sitio -->
+        <!--<link href="/Estilos.css" rel="stylesheet" type="text/css"> -->
+        <% content_for :head do %>
+        <% stylesheet_link_tag :Estilos %>
+        <% end %>
+        <!--Se importan los iconos de font awesome (facebook y twitter) -->
+    </head>
+
+    <body class="bg_inicio">
+
+        <!-- Seccion que contiene todo el contenido de la pagina-->
+        <div class="div_main">
+            <!-- Titulo/icono de la pagina -->
+            <a class="a_logo" href="Index.html.erb" target="_self"><img class="page_logo" src="/images/rappi_logo.png"> </a>
+            <p class="title">Data test</p>
+            <!-- Subtitulo descriptivo de la pagina -->
+
+            <!-- Menu de navegacion -->
+            <nav id="nav">
+                <!-- Componentes del menu de navegacion -->
+				<ul>
+                    <!-- Links a otras pestañas del sitio -->
+                    <li><a class="link" href="Index.html.erb" target="_self">Mapa</a></li>
+                    <li class="active"><a class="active_link" href="data_test.html" target="_self">Data test</a></li>
+
+
+				</ul>
+            </nav>
+
+            <!-- Cuerpo de la pagina (aqui se ubica todo el contenido) -->
+            <div class="cont">
+
+                <div class="cont_text">
+
+                  <h1>Prueba datos postgres</h1>
+                  <hr/>
+                  <% @dataPostgres.each do |data_line|  %>
+                    <h3><%= data_line %></h3>
+                  <% end %>
+
+                  <h1>Prueba datos mongo</h1>
+                  <hr/>
+                  <% @dataMongo.each do |data_line|  %>
+                    <h3><%= data_line.to_s %></h3>
+                  <% end %>
+
+                </div>
+
+            </div>
+
+            <!-- Footer -->
+
+            <div class="footer">
+						<ul><li>&copy; Hackathon Rappi 2018</li> <li>Hecho con dedicacion,  <a class="color: rgba(255, 255, 255, 0.3);" href="https://www.w3schools.com/html/html5_intro.asp" target="_blank">HTML5</a>  y  <a class="color: rgba(255, 255, 255, 0.3);" href="https://www.w3schools.com/css/" target="_blank">CSS</a></li></ul>
+			</div>
+        </div>
+
+
+    </body>
+</html>
