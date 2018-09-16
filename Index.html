@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Mapa</title>
-
         <style>
           /*Se crea una clase bg_inicio la cual determina la imagen y el color de fondo del background de la pagina.
           NOTA: Se escogieron imagenes con un tamaño bastante grande para evitar efectos borrosos y de baja calidad*/
@@ -412,16 +411,12 @@
                         // Initialize and add the map
                         function initMap() {
                         // The location of Uluru
-
+                        
+                        var uluru = {lat: -4.673, lng: -74.048};
+                        var uluru2 = {lat: -3.673, lng: -74.048};
+                        // The map, centered at Uluru
                         var map = new google.maps.Map(
                             document.getElementById('map'), {zoom: 15, center: uluru});
-
-                        for (var i = 0; i<250; i++){
-                          var marker = new google.maps.Marker({position: {lat: <%= @dataPostgres[i][2].to_f %>, lng: <%= @dataPostgres[i][3].to_f %>}, map: map});
-                        }
-
-                        var uluru = {lat: 4.673, lng: -74.048};
-                        var uluru2 = {lat: 4.665, lng: -74.009};
 
                         // The marker, positioned at Uluru
                         var marker = new google.maps.Marker({position: uluru, map: map});
