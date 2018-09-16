@@ -4,11 +4,380 @@
         <meta charset="UTF-8">
         <title>Data test</title>
 
-        <!--Se llama al archivo en donde se encuentran definidos todos los estilos css utilizados en el sitio -->
-        <!--<link href="/Estilos.css" rel="stylesheet" type="text/css"> -->
-        <% content_for :head do %>
-        <% stylesheet_link_tag :Estilos %>
-        <% end %>
+        <style>
+          /*Se crea una clase bg_inicio la cual determina la imagen y el color de fondo del background de la pagina.
+          NOTA: Se escogieron imagenes con un tamaño bastante grande para evitar efectos borrosos y de baja calidad*/
+          .bg_inicio {
+              background-color: #000000;
+              margin: 0;
+              padding: 0;
+              background-image: url(images/index_bg.jpg);
+              background-position: top center;
+          }
+
+          /*Se utiliza la bg_inicio:before para colocar un overlay que corresponde al un degradado radial de un color negro*/
+          .bg_inicio:before {
+              content: " ";
+              width: 100%;
+              height: 100%;
+              position: fixed;
+              z-index: -1;
+              top: 0;
+              left: 0;
+              /*Se configura con la propiedad backdround se hace uso de radial gradient para generar el overlay*/
+              background: -webkit-radial-gradient(top center, ellipse cover, rgba(0,0,0,0.35) 0%,rgba(0,0,0,1) 95%);
+              background-position: top center;
+          }
+
+          /*Se crean los estilos para las fuentes utilizadas en el sitio. Para este caso se escogio la fuente de google lato y se incluyeron los tipos de fuente que se utilizan a lo largo del proyecto*/
+          @font-face {
+              /* Se le da un nombre a la fuente*/
+              font-family: 'lato_black';
+              /*Se configura la fuente con el archivo .ttf descargado y ubicado en la subcarpeta fonts dentro de la carpeta del proyecto*/
+              src: url('fonts/Lato-Black.ttf') format('truetype');
+          }
+
+          @font-face {
+              font-family: 'lato_black_italic';
+              src: url('fonts/Lato-BlackItalic.ttf') format('truetype');
+          }
+
+          @font-face {
+              font-family: 'lato_bold';
+              src: url('fonts/Lato-Bold.ttf') format('truetype');
+          }
+
+          @font-face {
+              font-family: 'lato_hairline';
+              src: url('fonts/Lato-Hairline.ttf') format('truetype');
+          }
+
+          @font-face {
+              font-family: 'lato_hairline_italic';
+              src: url('fonts/Lato-HairlineItalic.ttf') format('truetype');
+          }
+
+          @font-face {
+              font-family: 'lato_italic';
+              src: url('fonts/Lato-Italic.ttf') format('truetype');
+          }
+
+          @font-face {
+              font-family: 'lato_light';
+              src: url('fonts/Lato-Light.ttf') format('truetype');
+          }
+
+          @font-face {
+              font-family: 'lato_regular';
+              src: url('fonts/Lato-Regular.ttf') format('truetype');
+          }
+
+          /*Se crea el estilo general para la etiqueta div en la que se encuentra todo el contenido de la pagina (incluyendo el titulo, subtitulo, menu de navegacion y contenido de la pagina)*/
+          .div_main{
+              margin: 85px 100px 120px 100px;
+          }
+
+          .map_div{
+              background-color: black;
+              margin: auto;
+              width: auto;
+              margin: 0px;
+              padding-top: 60px;
+              padding-bottom: 60px;
+          }
+
+          /*Se crea el estilo cont (content/contenido) el cual corresponde al estilo de la caja en donde se ubica el menu de navegacion y el propio contenido de la pagina*/
+          .cont{
+              background-color: white;
+              width: 100%;
+              margin: 0px 0px 50px 0px;
+              float: left;
+          }
+
+          /*El estilo cont_text se aplica a la seccion con color de fondo blanco en donde se ubica el contenido de la pagina*/
+          .cont_text{
+              /*Se le da un padding para que el contenido aparezca centrado dentro del layout*/
+              padding: 60px 60px 60px 60px;
+              margin: 0;
+              max-width: inherit;
+          }
+
+          /*El estilo titte se utiliza para los titulos que aparecen al comienzo de cada pagina*/
+          /*Se le dan las propiedades display: table y margin: auto auto 72px auto para centrar el texto en la pagina*/
+          .title{
+
+              display: table;
+              font-family: 'lato_bold';
+              text-transform: uppercase;
+              /*Se crea un borde blanco para la caja que contiene el texto*/
+              border: solid 4px;
+              /*Se aumenta el espacio entre letras y palabras del texto del titulo por cuestiones de estetica*/
+              letter-spacing: 2px;
+              word-spacing: 3px;
+              color: white;
+              text-align: center;
+              font-size: 18px;
+              margin: auto auto 55px auto;
+              /*Se aumenta el padding para de la caja del texto por cuestiones de estetica*/
+              padding: 15px 15px 15px 15px
+          }
+
+
+          /*Se modifican ciertas propiedades de la etiqueta h1 para que utilice la fuente importada al proyecto (declarada anteriormente), para que este centrado el texto, para cambiar el tamaño de la fuente al necesario y para que todo el texto escrito utilizando esta etiqueta aparezca en mayusculas*/
+          h1{
+              width: inherit;
+              margin-left: 60px;
+              margin-right: 60px;
+              text-align: center;
+              font-family: 'lato_black';
+              text-transform: uppercase;
+              color: rgba(0, 0, 0, 1);
+              font-size: 48px;
+              word-spacing: 6px;
+              letter-spacing: 6px;
+              line-height: 1.6;
+          }
+
+          h2{
+              width: inherit;
+              margin-right: 42px;
+              padding-right: 24px;
+              text-align: center;
+              font-family: 'lato_black';
+              text-transform: uppercase;
+              color: rgba(0, 0, 0, 1);
+              font-size: 24px;
+              word-spacing: 2px;
+              letter-spacing: 5px;
+              line-height: 1.6;
+          }
+
+          /*Se modifican ciertas propiedades de la etiqueta h3 para que posea un margen adecuado, un tipo de fuente lato italic, un tamaño de fuente definido para el diseño del sitio y texto centrado*/
+          h3{
+              width: inherit;
+              margin: 50px 120px 80px 120px;
+              text-align: center;
+              font-family: 'lato_italic';
+              color: rgba(0, 0, 0, 0.5);
+              font-size: 18px;
+              word-spacing: 3px;
+              line-height: 1.6;
+          }
+
+
+          /*Se modifican propiedades de la etiqueta img tales como las margenes. Ademas se utilizan las propiedades display: block, margin-left: auto, margin-right: auto y width: 75% para que la imagen tenga un tamaño acorde al tamaño de la ventana y ademas para que se encuentre centrada en la misma*/
+          img {
+              display: block;
+              overflow: hidden;
+              margin-left: auto;
+              margin-right: auto;
+              margin-bottom: 36px;
+              width: 75%;
+              /*Las siguientes propiedades son utilizada para que, al momento de realiszarse una transformacion en la imagen como aumentar su tamaño, esta se haga de una manera mas suave, controlando el tiempo y dandole un mejor aspecto al efecto*/
+              -moz-transition: -moz-transform 0.2s ease-out;
+              -webkit-transition: -webkit-transform 0.2s ease-out;
+              -ms-transition: -ms-transform 0.2s ease-out;
+              transition: transform 0.2s ease-out;
+          }
+
+          /*se utiliza img:hove para que cuando el usuario coloque el mouse sobre la imagen esta aumente su tamaño siguiendo los lineamentos explicados en el estilo img*/
+          img:hover{
+              -moz-transform: scale(1.05);
+              -webkit-transform: scale(1.05);
+              -ms-transform: scale(1.05);
+              transform: scale(1.05);
+          }
+
+          .page_logo {
+              display: block;
+              overflow: hidden;
+              margin-left: auto;
+              margin-right: auto;
+              margin-bottom: 0px;
+              margin-top: 0px;
+              width: 100%;
+              /*Las siguientes propiedades son utilizada para que, al momento de realiszarse una transformacion en la imagen como aumentar su tamaño, esta se haga de una manera mas suave, controlando el tiempo y dandole un mejor aspecto al efecto*/
+              -moz-transition: -moz-transform 0.2s ease-out;
+              -webkit-transition: -webkit-transform 0.2s ease-out;
+              -ms-transition: -ms-transform 0.2s ease-out;
+              transition: transform 0.2s ease-out;
+          }
+
+          /*se utiliza img:hove para que cuando el usuario coloque el mouse sobre la imagen esta aumente su tamaño siguiendo los lineamentos explicados en el estilo img*/
+          .page_logo:hover{
+              -moz-transform: scale(1.05);
+              -webkit-transform: scale(1.05);
+              -ms-transform: scale(1.05);
+              transform: scale(1.05);
+          }
+
+          /*El estilo button crea los botones utilizados a lo largo de la pagina. Las propiedades display: table y margin: 35px auto 0px auto centran al boton en su contenedor*/
+          .button{
+              display: table;
+              margin: 35px auto 0px auto;
+              font-family: 'lato_black';
+              font-size: 12px;
+              letter-spacing: 1px;
+              text-decoration: none;
+              color: black;
+              text-transform: uppercase;
+              /*Se crea un borde negro para la caja que contiene el boton y se le da un padding a esta para que el texto aparezca centrado dentro del boton*/
+              padding: 15px 30px 15px 30px;
+              border: solid 2px;
+              border-color: #000000;
+          }
+
+          /*button:hover se utiliza para cambiar el color de texto y del borde del boton cuando el usuario pase el puntero sobre este*/
+          .button:hover{
+              color: #2196F3 !important;
+              border-color: #2196F3 !important;
+          }
+
+
+          /*Se cambian propiedades de la etiqueta nav para generar el menu de navegacion del sitio web, estas propiedades van desde el color de fondo, color de texto y su margen*/
+          nav {
+              color: white;
+              background: rgba(255, 255, 255, 0.175);
+              margin: 0 auto 0 auto;
+              overflow: hidden;
+              position: relative;
+              z-index: 2;
+          }
+
+          ul{
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              overflow: hidden;
+          }
+
+          li{
+              float: left;
+          }
+
+          /*El estilo link se aplica a las etiquetas a que corresponden a los elementos de la barra de navegacion*/
+          .link{
+              font-family: 'lato_bold';
+              font-size: 12px;
+              display: block;
+              color: white;
+              text-align: center;
+              padding: 25px 25px;
+              text-decoration: none;
+              text-transform: uppercase;
+              letter-spacing: 2.5px;
+              cursor: pointer;
+          }
+
+          /*se utiliza el estilo link:hover:not(.active) para oscurecer un poco el background de la etiqueta del menu sobre la cual el usuario pase el puntero. el not(.active) se utiliza para que este cambio no afecte a la etiqueta correspondiente a la pestaña del menu que se encuentre activa*/
+          .link:hover:not(.active) {
+              background: rgba(255, 255, 255, 0.18);
+          }
+
+          /*el estiilo active se le da a la paestaña activa para que cambie su color de fondo dando asi un indicativo visual*/
+          .active {
+              background-color: white;
+          }
+
+          /*El estilo active_link es una variacion del estilo link utilizado para la estiqueta a de la etiqueta activa. en este caso se heredan la gran mayoria de las propiedades pero se cambia el color del texto a negro y se le da un efecto de cambio de color al texto cuando el puntero se encuentra sobre el*/
+          .active_link{
+              font-family: 'lato_black';
+              font-size: 12px;
+              display: block;
+              color: black;
+              text-align: center;
+              padding: 25px 25px;
+              text-decoration: none;
+              text-transform: uppercase;
+              letter-spacing: 2.5px;
+              cursor: pointer;
+          }
+
+          .active_link:hover{
+              color: #2196F3;
+          }
+
+
+          /*El estilo footer como su nombre lo indica se aplica a la parte final de la pagina, la propiedad display:table juto con las margenes se utilizan para centrar el footer en la pagina*/
+          .footer {
+              display: table;
+              text-align: center;
+              color: rgba(255, 255, 255, 0.6);
+              cursor: default;
+              font-family: 'lato_regular';
+              font-size: 13px;
+              letter-spacing: 2px;
+              line-height: 3;
+              text-transform: uppercase;
+              margin: 0 auto;
+              padding: 0;
+              z-index: 2;
+          }
+
+          .footer input, .footer select, .footer textarea {
+              color: #ffffff;
+          }
+
+          /*Se le da un color especial a la etiqueta a del footer la cual se aplica a los links de HTML5 y CSS3 de w3schools ubicados en el footer*/
+          .footer a {
+              color: rgba(255, 255, 255, 0.8);
+              text-decoration: none;
+          }
+
+          .footer a:hover {
+              color: #2196F3 !important;
+          }
+
+          .footer ul {
+              list-style: none;
+              margin: 0;
+              padding-left: 0;
+          }
+
+          /*Para las etiquetas li del footer se configura un borde izquierdo para crear una linea divisoria visual por medio de la propiedad border-left: solid 2px*/
+
+          .footer ul li {
+              border-left: solid 2px;
+              display: inline-block;
+              line-height: 1;
+              padding-left: 20px;
+              padding-right: 20px;
+          }
+
+          /*Para la primer etiqueta li del ul del footer no se necesita colocar una linea divisoria ni tampoco se necesitan paddin ni margin con lo que se eliminan estas propiedades del estilo definido anteriormente*/
+          .footer ul li:first-child {
+              border-left: 0;
+              margin-left: 0;
+              padding-left: 0;
+          }
+
+          /*a_linl es aplicado al link de grafica interactia ubicado en la pagina acerca de*/
+          .a_link{
+              font-family: 'lato_italic';
+              width: auto;
+              font-size: 18px;
+              display: block;
+              color:rgba(0, 0, 0, 0.7);
+              text-decoration: none;
+              word-spacing: 3px;
+              line-height: 1.6;
+              cursor: pointer;
+          }
+
+          /*al estilo a_link se le agrea un efecto de cambio de color para cuando el cursor este por encima de la etiqueta */
+          .a_link:hover{
+              color: #2196F3 !important;
+          }
+
+          /*divider es utilizado en la pagina acerca de para crear una linea divisora visual entre la informacion del autor y los links a la pagina de donde se obtuvieron todas las imagenes utilizadas a lo largo del estilo*/
+          .divider{
+              content: "";
+              margin: 0;
+              padding: 0;
+              border-top: solid 2px;
+              border-color: rgba(0, 0, 0, 0.3);
+          }
+        </style>
         <!--Se importan los iconos de font awesome (facebook y twitter) -->
     </head>
 

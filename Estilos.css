@@ -79,42 +79,6 @@ NOTA: Se escogieron imagenes con un tamaño bastante grande para evitar efectos 
     padding-bottom: 60px;
 }
 
-/*div para el mapa interactivo */
-.phaser_div{
-    margin: auto;
-    max-width: 1000px;
-    margin-bottom: 48px
-}
-
-/*div para las instrucciones de uso del mapa interactivo*/
-.info_div{
-    padding: 0px;
-    margin: 28px 100px 28px 100px;
-    background-color: black;
-}
-
-.info_div_icon{
-    /*Las propiedades display: table-cell y vertical-align: middle se utilizan para centrar los contenidos de cada columna en el centro (vertical)*/
-    /*La propiedad transform mueve la imagen un 10% de la altura del contenedor hacia abajo*/
-    transform: translateY(10%);
-    display: table-cell;
-    vertical-align: middle;
-    width: 20%;
-    max-width: 20%;
-    margin: 0;
-    padding: 0;
-}
-
-.info_div_text{
-    display: table-cell;
-    vertical-align: middle;
-    align-content: center;
-    width: 80%;
-    max-width: 80%;
-    margin: 0;
-    padding: 0;
-}
-
 /*Se crea el estilo cont (content/contenido) el cual corresponde al estilo de la caja en donde se ubica el menu de navegacion y el propio contenido de la pagina*/
 .cont{
     background-color: white;
@@ -129,50 +93,6 @@ NOTA: Se escogieron imagenes con un tamaño bastante grande para evitar efectos 
     padding: 60px 60px 60px 60px;
     margin: 0;
     max-width: inherit;
-}
-
-/*El estilo lateral_header utilizado en las paginas de arte, cotidiano y acerca de se crea para generar un layout a dos columnas que permita colocar una imagen (lateral_header_img) y a un lado un texto descriptivo (lateral_header_txt)*/
-.lateral_header{
-    position: relative;
-    width: 100%;
-    margin: 0px 30px 0px 0px;
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/*El tamaño de cada columna debe ser aproximadamente de la mitad (para dos columnas) del layout que las contiene; esto se logra configurando la propiedad width a 50% (50% del tamaño del parent)*/
-.lateral_header_img{
-    /*Las propiedades display: table-cell y vertical-align: middle se utilizan para centrar los contenidos de cada columna en el centro (vertical)*/
-    display: table-cell;
-    vertical-align: middle;
-    /*La propiedad transform mueve la imagen un 10% de la altura del contenedor hacia abajo*/
-    transform: translateY(10%);
-    width: 50%;
-    max-width: 50%;
-    margin: 0;
-    padding: 0;
-}
-
-.lateral_header_txt{
-    /*Las propiedades display: table-cell y vertical-align: middle se utilizan para centrar los contenidos de cada columna en el centro (vertical)*/
-    display: table-cell;
-    vertical-align: middle;
-    align-content: center;
-    width: 50%;
-    max-width: 50%;
-    margin: 0;
-    padding: 0;
-}
-
-/*El estilo lateral_header_txt_cont se utiliza para colocar el texto dentro de la columna con el estilo lateral_header_txt*/
-.lateral_header_txt_cont{
-    /*Las propiedades word-wrap: break-word y overflow-wrap: break-word se utilizan para evitar que el texto dentro del contenedor se salga de este y en cambio se ubique en la siguiente linea*/
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    width: 100%;
-    padding: 0px 10px 0px 0px;
-    margin: 0px 10px 0px 10px;
 }
 
 /*El estilo titte se utiliza para los titulos que aparecen al comienzo de cada pagina*/
@@ -225,11 +145,6 @@ h2{
     line-height: 1.6;
 }
 
-/*Etiqueta utilizada para un texto sin margen inferior*/
-.txt_nm{
-    margin-bottom: 0px;
-}
-
 /*Se modifican ciertas propiedades de la etiqueta h3 para que posea un margen adecuado, un tipo de fuente lato italic, un tamaño de fuente definido para el diseño del sitio y texto centrado*/
 h3{
     width: inherit;
@@ -242,40 +157,6 @@ h3{
     line-height: 1.6;
 }
 
-/*estilo para el texto de informacion sobre el mapa interactivo*/
-.info_text{
-    color: white;
-    margin: 0px 48px 0px 16px;
-    width: 93%;
-    text-align: justify;
-    padding: 0px;
-}
-
-
-.lateral_header_font{
-    width: inherit;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    font-family: 'lato_italic';
-    color: rgba(0, 0, 0, 0.5);
-    font-size: 18px;
-    word-spacing: 3px;
-    line-height: 1.6;
-}
-
-.lateral_header_big_font{
-    width: inherit;
-    margin: 0px;
-    text-align: center;
-    font-family: 'lato_black';
-    text-transform: uppercase;
-    color: rgba(0, 0, 0, 1);
-    font-size: 48px;
-    word-spacing: 8px;
-    letter-spacing: 8px;
-    line-height: 1.6;
-}
 
 /*Se modifican propiedades de la etiqueta img tales como las margenes. Ademas se utilizan las propiedades display: block, margin-left: auto, margin-right: auto y width: 75% para que la imagen tenga un tamaño acorde al tamaño de la ventana y ademas para que se encuentre centrada en la misma*/
 img {
@@ -294,57 +175,6 @@ img {
 
 /*se utiliza img:hove para que cuando el usuario coloque el mouse sobre la imagen esta aumente su tamaño siguiendo los lineamentos explicados en el estilo img*/
 img:hover{
-    -moz-transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
-}
-
-/*El estilo big_img es muy similar a la clase img solo que aumenta el tamaño maximo que puede tener la imagen*/
-.big_img {
-    display: block;
-    overflow: hidden;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 36px;
-    width: 85%;
-    -moz-transition: -moz-transform 0.2s ease-out;
-    -webkit-transition: -webkit-transform 0.2s ease-out;
-    -ms-transition: -ms-transform 0.2s ease-out;
-    transition: transform 0.2s ease-out;
-}
-
-.big_img:hover{
-    -moz-transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
-}
-
-
-/*El estilo circle_img por medio de la propiedad border-radius: 50% le da un aspecto circular a la imagen*/
-.circle_img {
-    display: block;
-    overflow: hidden;
-    margin-left: auto;
-    margin-right: auto;
-    width: 85%;
-    border-radius: 50%;
-    -moz-transition: -moz-transform 0.2s ease-out;
-    -webkit-transition: -webkit-transform 0.2s ease-out;
-    -ms-transition: -ms-transform 0.2s ease-out;
-    transition: transform 0.2s ease-out;
-}
-
-.circle_img:hover{
-    -moz-transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
-}
-
-
-.circle_img_small:hover{
     -moz-transform: scale(1.05);
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
@@ -396,140 +226,6 @@ img:hover{
     border-color: #2196F3 !important;
 }
 
-/*El estilo button_big hereda todas las propiedades del estilo button pero tiene un tamaño mas grande, cambio observable por medio de la propiedad padding*/
-.button_big{
-    display: table;
-    margin: 65px auto 0px auto;
-    font-family: 'lato_black';
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-decoration: none;
-    color: black;
-    text-transform: uppercase;
-    padding: 20px 40px 20px 40px;
-    border: solid 2px;
-    border-color: #000000;
-}
-
-.button_big:hover{
-    color: #2196F3 !important;
-    border-color: #2196F3 !important;
-}
-
-/*button_big_s es un boton con margenes modificadas*/
-.button_big_s{
-    display: table;
-    margin: 95px auto 0px auto;
-    font-family: 'lato_black';
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-decoration: none;
-    color: black;
-    text-transform: uppercase;
-    padding: 20px 40px 20px 40px;
-    border : solid 2px;
-    border-color: #000000;
-}
-
-.button_big_s:hover{
-    color: #2196F3 !important;
-    border-color: #2196F3 !important;
-}
-
-/*Responsive: para que el sitio se acomodara de una mejor forma al tamaño de la pagina se utilizo el codigo colocado a continuacion para disminuir el tamaño de los componentes que presentaban problemas de posicion o de tamaño cuando se hacia mas pequeña la ventana del navegador*/
-@media only screen and (max-width: 780px) {
-    .title {
-        margin: auto auto 30px auto;
-        padding: 10px 10px 10px 10px;
-        font-size: 14px;
-        border: solid 3px;
-        letter-spacing: 2px;
-        word-spacing: 3px;
-    }
-    .light_text_title{
-        margin: 5px auto 60px auto;
-        font-size: 14px
-    }
-    div{
-    margin: 45px 50px 100px 50px;
-    }
-    .cont_text{
-        padding: 30px 30px 60px 30px;
-    }
-    h1{
-        font-size: 36px;
-        margin-left: 0px;
-        margin-right: 0px;
-        letter-spacing: 6px;
-        word-spacing: 6px;
-    }
-    h2{
-    font-size: 16px;
-    word-spacing: 1px;
-    letter-spacing: 3px;
-    line-height: 1.6;
-    }
-    h3{
-        margin: 25px 60px 40px 60px;
-    }
-    .gallery_col_left{
-        width: 49.7%;
-    }
-    .gallery_col_right{
-        width: 49.7%;
-    }
-    .lateral_header_big_font{
-        font-size: 36px;
-        word-spacing: 6px;
-    }
-}
-
-
-@media only screen and (max-width: 480px) {
-    .title {
-        margin: auto auto 15px auto;
-        padding: 8px 8px 8px 8px;
-        font-size: 12px;
-        border: solid 2px;
-        letter-spacing: 2px;
-        word-spacing: 3px;
-    }
-    .light_text_title{
-        margin: 3px auto 30px auto;
-    }
-    div{
-    margin: 25px 30px 70px 30px;
-    }
-    .cont_text{
-        padding: 15px 15px 30px 15px;
-    }
-    h1{
-        font-size: 18px;
-        margin-left: 15px;
-        margin-right: 15px;
-        letter-spacing: 4px;
-        word-spacing: 4px;
-    }
-    h2{
-    font-size: 12px;
-    word-spacing: 1px;
-    letter-spacing: 2px;
-    line-height: 1.6;
-    }
-    h3{
-        margin: 13px 30px 20px 30px;
-    }
-    .gallery_col_left{
-        width: 49.6%;
-    }
-    .gallery_col_right{
-        width: 49.6%;
-    }
-    .lateral_header_big_font{
-        font-size: 18px;
-        word-spacing: 4px;
-    }
-}
 
 /*Se cambian propiedades de la etiqueta nav para generar el menu de navegacion del sitio web, estas propiedades van desde el color de fondo, color de texto y su margen*/
 nav {
@@ -594,16 +290,6 @@ li{
     color: #2196F3;
 }
 
-
-/*La etiqueta li_icons se utiliza para las etiquetas li dentro del menu de navegacion que contienen los icons de facebook y twitter*/
-.li_icons{
-    float: right;
-}
-
-.li_icons_a{
-    display: block;
-    padding: 0px 0px 0px 0px;
-}
 
 /*El estilo footer como su nombre lo indica se aplica a la parte final de la pagina, la propiedad display:table juto con las margenes se utilizan para centrar el footer en la pagina*/
 .footer {
@@ -674,13 +360,6 @@ li{
 /*al estilo a_link se le agrea un efecto de cambio de color para cuando el cursor este por encima de la etiqueta */
 .a_link:hover{
     color: #2196F3 !important;
-}
-
-.a_logo{
-    display: block;
-    width: 40%;
-    margin: auto;
-    cursor: pointer;
 }
 
 /*divider es utilizado en la pagina acerca de para crear una linea divisora visual entre la informacion del autor y los links a la pagina de donde se obtuvieron todas las imagenes utilizadas a lo largo del estilo*/
