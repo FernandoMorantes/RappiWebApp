@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Mapa</title>
+      
         <style>
           /*Se crea una clase bg_inicio la cual determina la imagen y el color de fondo del background de la pagina.
           NOTA: Se escogieron imagenes con un tamaño bastante grande para evitar efectos borrosos y de baja calidad*/
@@ -194,7 +195,7 @@
               margin-right: auto;
               margin-bottom: 0px;
               margin-top: 0px;
-              width: 100%;
+              width: 350px;
               /*Las siguientes propiedades son utilizada para que, al momento de realiszarse una transformacion en la imagen como aumentar su tamaño, esta se haga de una manera mas suave, controlando el tiempo y dandole un mejor aspecto al efecto*/
               -moz-transition: -moz-transform 0.2s ease-out;
               -webkit-transition: -webkit-transform 0.2s ease-out;
@@ -386,7 +387,7 @@
         <!-- Seccion que contiene todo el contenido de la pagina-->
         <div class="div_main">
             <!-- Titulo/icono de la pagina -->
-            <a class="a_logo" href="Index.html.erb" target="_self"><img class="page_logo" src="/images/rappi_logo.png"> </a>
+            <a class="a_logo" href="Index.html.erb" target="_self"><img class="page_logo" src="./rappi_logo.png"> </a>
             <p class="title">Hackathon rappi</p>
             <!-- Subtitulo descriptivo de la pagina -->
 
@@ -395,7 +396,7 @@
                 <!-- Componentes del menu de navegacion -->
 				<ul>
                     <!-- Links a otras pestañas del sitio -->
-							<li class="active"><a class="active_link" href="Index.html.erb" target="_self">Mapa</a></li>
+							<li class="active"><a class="active_link" href="Index.html" target="_self">Mapa</a></li>
               <li><a class="link" href="data_test.html" target="_self">Data test</a></li>
 
 				</ul>
@@ -411,11 +412,11 @@
                         // Initialize and add the map
                         function initMap() {
                         // The location of Uluru
-                        var uluru = {lat: -4.673, lng: -74.048};
-                        var uluru2 = {lat: -3.673, lng: -74.048};
+                        var uluru = {lat: 4.673, lng: -74.048};
+                        var uluru2 = {lat: 4.665, lng: -74.009};
                         // The map, centered at Uluru
                         var map = new google.maps.Map(
-                            document.getElementById('map'), {zoom: 8, center: uluru});
+                            document.getElementById('map'), {zoom: 15, center: uluru});
 
                         // The marker, positioned at Uluru
                         var marker = new google.maps.Marker({position: uluru, map: map});
